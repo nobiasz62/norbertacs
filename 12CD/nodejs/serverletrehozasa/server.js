@@ -1,20 +1,24 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const cors = require("cors");
-const mysql = require("mysql");
+const cors = require('cors');
+const mysql = require('mysql');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-
+ 
 app.use(cors());
-
+ 
 const db = mysql.createConnection({
-    user: "root",
-    host: "127.0.0.1",
-    port: 3307,
-    password: "",
-    database: "kozutak",
+    host: '127.0.0.1',
+    user: 'root',
+    port: '3307',
+    password: '',
+    database: 'kozutak'
 });
 
-app-listen(3001, () => {
-    console.log("Server is running on port 3301")
+app.get("/", (req, res) => {
+    res.send("Ez a 12CD szerver");
+});
+ 
+app.listen(3001, () => {
+    console.log('Server is running on port 3001');
 });
